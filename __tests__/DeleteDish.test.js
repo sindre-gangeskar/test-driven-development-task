@@ -2,7 +2,7 @@ const app = require('../app');
 const request = require('supertest');
 
 it('Test delete dish functionality', async () => {
-  const response = await request(app).delete('/dishes').send({ id: 1 });
+  const response = await request(app).delete('/dishes').send({ CountryId: 1, Dish: 'Fish' });
   if (response.statusCode == 200) {
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty('message', 'Successfully deleted dish');

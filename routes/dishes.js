@@ -39,8 +39,8 @@ router.post('/', jsonParser, async function (req, res, next) {
 
 router.delete('/', async function (req, res, next) {
 	try {
-		const { id } = req.body;
-		const dish = await dishesService.deleteDish(id);
+		const { CountryId, Dish } = req.body;
+		const dish = await dishesService.deleteDish(CountryId, Dish);
 		if (dish)
 			res.status(200).send({ statusCode: 200, message: 'Successfully deleted dish' });
 		else res.status(404).send({ statusCode: 404, message: 'No dish with provided id exists' });
